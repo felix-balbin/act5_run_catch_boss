@@ -16,4 +16,21 @@ public class EnemyAIContext : MonoBehaviour
         Agent = GetComponent<NavMeshAgent>();
         Animator = GetComponent<Animator>();
     }
+
+    public void PlayStep()
+    {
+        Debug.Log("Step");
+    }
+    public void ActivateShield()
+    {
+        Debug.Log("ActivateShield");
+    }
+    public void StartAttack()
+    {
+        Debug.Log("StartAttack");
+    }
+    public void EndAttack()
+    {
+        Debug.Log("EndAttack");
+    }
 }
