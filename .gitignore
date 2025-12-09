@@ -98,3 +98,11 @@ ServerData
 
 # Auto-generated scenes by play mode tests
 [Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# DOTween
+# DOTween
+[Dd]emigiant/
+[Dd]OTween/
+[Dd]OTween.*/
+Assets/Plugins/Demigiant/
+Library/PackageCache/*demigiant*
