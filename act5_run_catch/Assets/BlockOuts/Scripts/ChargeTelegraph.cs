@@ -21,6 +21,8 @@ public class ChargeTelegraphState : BossState
     {
         timer += Time.deltaTime;
 
+        //si el jugador pasa el rato suficiente dentro de la zona de ataque
+        //(ojo, no la de detección), pasa a cargar el ataque
         if (timer >= TelegraphDuration)
         {
             fsm.ChangeState(ChargeState);

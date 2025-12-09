@@ -21,6 +21,7 @@ public class ChaseState : BossState
 
         ctx.Agent.SetDestination(ctx.Target.position);
 
+        //Si la distancia entre el boss y el target es menor a la distancia para activar el charge, activa el telégrafo
         if (dist <= ctx.ChargeRange)
         {
             fsm.ChangeState(ChargeTelegraphState);

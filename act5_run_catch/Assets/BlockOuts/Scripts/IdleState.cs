@@ -18,6 +18,8 @@ public class IdleState : BossState
 
         float dist = Vector3.Distance(ctx.transform.position, ctx.Target.position);
 
+        //Si la distancia entre el target y el boss es menor que la distancia de vista,
+        //lo detecta y entra al estado de chase
         if (dist < ctx.SightDistance)
         {
             fsm.ChangeState(ChaseState);
