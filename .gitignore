@@ -99,10 +99,12 @@ ServerData
 # Auto-generated scenes by play mode tests
 [Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 
-# DOTween
-# DOTween
-[Dd]emigiant/
-[Dd]OTween/
-[Dd]OTween.*/
-Assets/Plugins/Demigiant/
-Library/PackageCache/*demigiant*
+# DOTWEEN
+
+# Ignorar archivos generados automáticamente por DOTween (se regeneran solos)
+Assets/Demigiant/DOTween/Modules/DOTweenModuleSetup.cs
+Assets/Demigiant/DOTween/Editor/*.zip
+
+# Opcional: ignorar archivos "DoTweenGenerated", se regeneran automáticamente
+Assets/**/DOTweenGenerated/*.cs.meta
+Assets/**/DOTweenGenerated/*.cs
