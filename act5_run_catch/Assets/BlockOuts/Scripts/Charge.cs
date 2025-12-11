@@ -29,7 +29,9 @@ public class ChargeState : BossState
         timer += Time.deltaTime;
         var ctx = fsm.GetComponent<EnemyAIContext>();
 
+        //mover el boss al target
         ctx.transform.position += dir * ChargeSpeed * Time.deltaTime;
+        
         //Si pasa el tiempo de carga, ataca
         if (timer >= ChargeDuration)
         {
