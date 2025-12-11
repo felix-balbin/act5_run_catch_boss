@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 [CreateAssetMenu(menuName = "FSM/States/Attack")]
 public class AttackState : BossState

@@ -1,4 +1,6 @@
+using DG.Tweening;
 using UnityEngine;
+
 
 [CreateAssetMenu(menuName = "FSM/States/Charge")]
 public class ChargeState : BossState
@@ -19,6 +21,7 @@ public class ChargeState : BossState
         ctx.Animator.SetTrigger("Charge");
 
         dir = (ctx.Target.position - ctx.transform.position).normalized;
+
     }
 
     public override void OnUpdate(StateMachine fsm)
@@ -31,10 +34,13 @@ public class ChargeState : BossState
         if (timer >= ChargeDuration)
         {
             fsm.ChangeState(AttackState);
+
+            ctx.transform.DOPlay();
         }
     }
 
     public override void OnExit(StateMachine fsm)
     {
+
     }
 }
