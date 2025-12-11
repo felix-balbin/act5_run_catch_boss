@@ -37,7 +37,8 @@ public class ChaseState : BossState
         {
             fsm.ChangeState(ChargeTelegraphState);
         }
-        ctx.Animator.SetBool("Run", ctx.Agent.velocity.magnitude > 0.1f);
+
+        //ctx.Animator.SetBool("Run", ctx.Agent.velocity.magnitude > 0.1f);
     }
 
     public override void OnExit(StateMachine fsm)
