@@ -9,10 +9,15 @@ public class ChaseState : BossState
 
     public override void OnEnter(StateMachine fsm)
     {
+        Debug.Log("ChaseState OnEnter ejecutado");
+
         var ctx = fsm.GetComponent<EnemyAIContext>();
         ctx.Agent.isStopped = false;
         ctx.Animator.SetBool("Run", true);
         //ctx.Animator.CrossFade("Run", 0.1f);
+
+        //indicator
+        ctx.Indicators.ShowRange(true);
     }
 
     public override void OnUpdate(StateMachine fsm)
@@ -45,5 +50,7 @@ public class ChaseState : BossState
     {
         var ctx = fsm.GetComponent<EnemyAIContext>();
         ctx.Animator.SetBool("Run", false);
+        ctx.Indicators.ShowRange(false);
+
     }
 }

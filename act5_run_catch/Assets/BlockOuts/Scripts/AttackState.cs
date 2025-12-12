@@ -7,11 +7,17 @@ public class AttackState : BossState
     public BossState IdleState;
     public float AttackDuration = 1f;
     private float timer;
+    //private Vector3 dir;
+    //public float ChargeSpeed = 10f;
+
+
 
     public override void OnEnter(StateMachine fsm)
     {
         timer = 0;
         var ctx = fsm.GetComponent<EnemyAIContext>();
+
+        ctx.Indicators.ShowAlert(true);
 
         ctx.Agent.isStopped = true;
         ctx.Animator.SetTrigger("Attack");
@@ -23,11 +29,16 @@ public class AttackState : BossState
 
         if (timer > AttackDuration)
         {
+            //var ctx = fsm.GetComponent<EnemyAIContext>();
+            //ctx.transform.position += dir * ChargeSpeed * Time.deltaTime;
             fsm.ChangeState(IdleState);
         }
     }
 
     public override void OnExit(StateMachine fsm)
     {
+        var ctx = fsm.GetComponent<EnemyAIContext>();
+        ctx.Indicators.ShowAlert(false);
+
     }
 }

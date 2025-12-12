@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChargeState
   AttackState: {fileID: 11400000, guid: a94c162ceb9aee343b358b7db24958eb, type: 2}
   ChargeSpeed: 10
-  ChargeDuration: 0.7
+  MaxChargeDistance: 6
+  WaitingTime: 1

@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChargeTelegraphState
   ChargeState: {fileID: 11400000, guid: f124a35787c06c34ba0ac75145457c65, type: 2}
   TelegraphDuration: 1.5
+  JumpHigh: 3
+  JumpDuration: 0.5
+  JumpsNum: 1

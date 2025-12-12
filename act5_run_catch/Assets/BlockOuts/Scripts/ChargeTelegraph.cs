@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "FSM/States/ChargeTelegraph")]
 public class ChargeTelegraphState : BossState
@@ -7,12 +8,18 @@ public class ChargeTelegraphState : BossState
     public BossState ChargeState;
     public float TelegraphDuration = 1.5f;
 
+    //range marcado
+    //public Image ability2Image;
+    //public Canvas ability2Canvas;
+    //public Image ability2RangeIndicator;
+
+
     // salto dotween
-    public float JumpHigh = 3f;
+    public float JumpHigh = 2f;
     public float JumpDuration = 0.5f;
     public int JumpsNum = 1;
 
-    public TrailRenderer TrailRenderer;
+    //public TrailRenderer TrailRenderer;
 
     private Tween tween;
 
@@ -21,6 +28,11 @@ public class ChargeTelegraphState : BossState
     public override void OnEnter(StateMachine fsm)
     {
         timer = 0;
+
+        //ability2Canvas.enabled = true;
+        //ability2Image.enabled = true;
+        //ability2RangeIndicator.enabled = true;
+
 
         var ctx = fsm.GetComponent<EnemyAIContext>();
         ctx.Agent.isStopped = true;
@@ -44,7 +56,7 @@ public class ChargeTelegraphState : BossState
     }
 
     public override void OnUpdate(StateMachine fsm)
-    {
+    {        
         timer += Time.deltaTime;
 
         //si el jugador pasa el rato suficiente dentro de la zona de ataque
@@ -61,5 +73,10 @@ public class ChargeTelegraphState : BossState
         {
             tween.Kill(); // Detener la animación DOTween
         }
+
+
+        //ability2Canvas.enabled = false;
+        //ability2Image.enabled = false;
+        //ability2RangeIndicator.enabled = false;
     }
 }
