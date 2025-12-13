@@ -1,3 +1,4 @@
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,12 +14,29 @@ public class EnemyAIContext : MonoBehaviour
 
     public ShowIndicators Indicators;
 
+    public CameraSwitcher CameraSwitcher;
+
     void Awake()
     {
         Debug.Log("EnemyAIContext Awake ejecutado");
 
         Agent = GetComponent<NavMeshAgent>();
         Animator = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        Agent = GetComponent<NavMeshAgent>();
+
+        Vector3 targetPos = Target.position;
+        Vector3 bossPos  = Agent.transform.position;
+        float dist = Vector3.Distance(bossPos, targetPos);
+
+        if (dist<(SightDistance+5f))
+        {
+            CameraSwitcher.SwitchCamera();
+
+        }
     }
 
     public void PlayStep()

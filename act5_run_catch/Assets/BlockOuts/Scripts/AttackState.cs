@@ -17,10 +17,11 @@ public class AttackState : BossState
         timer = 0;
         var ctx = fsm.GetComponent<EnemyAIContext>();
 
-        ctx.Indicators.ShowAlert(true);
-
         ctx.Agent.isStopped = true;
         ctx.Animator.SetTrigger("Attack");
+
+        ctx.Indicators.ShowAlert(true);
+
     }
 
     public override void OnUpdate(StateMachine fsm)
