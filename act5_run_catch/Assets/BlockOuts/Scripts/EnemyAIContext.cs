@@ -1,3 +1,4 @@
+using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.AI;
@@ -14,7 +15,9 @@ public class EnemyAIContext : MonoBehaviour
 
     public ShowIndicators Indicators;
 
+    public BossCamera BossCamera;
     public CameraSwitcher CameraSwitcher;
+    private bool bossCamTrigger;
 
     void Awake()
     {
@@ -26,17 +29,24 @@ public class EnemyAIContext : MonoBehaviour
 
     private void Update()
     {
-        Agent = GetComponent<NavMeshAgent>();
+        BossCamera.CameraBoss();
+        //if (!Animator.GetCurrentAnimatorStateInfo(0).IsName("Idle")) return;
 
-        Vector3 targetPos = Target.position;
-        Vector3 bossPos  = Agent.transform.position;
-        float dist = Vector3.Distance(bossPos, targetPos);
+        //Vector3 targetPos = Target.position;
+        //Vector3 bossPos  = Agent.transform.position;
+        //float dist = Vector3.Distance(bossPos, targetPos);
 
-        if (dist<(SightDistance+5f))
-        {
-            CameraSwitcher.SwitchCamera();
+        //if (!bossCamTrigger && dist <= (SightDistance + 10f))
+        //{
+        //    bossCamTrigger = true;
+        //    CameraSwitcher.ActivateBossCam();
 
-        }
+        //}
+        
+        //if(dist > SightDistance + 13f)
+        //{
+        //    bossCamTrigger = false;
+        //}
     }
 
     public void PlayStep()
